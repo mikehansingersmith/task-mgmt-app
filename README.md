@@ -1,6 +1,6 @@
 #task-mgmt-app -
 
-Demonstrating some backend skills using PHP with mySQL database with a simple app.
+Demonstrating some backend skills using PHP with mySQL database within a simple app.
 
 To use the app you will need to register a login.
 
