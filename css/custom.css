@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 .error{
 	color:red;
 }
@@ -21,6 +26,32 @@ ul.items li a{
 	margin-bottom:3px;
 }
 
-form input[type="text"],form input[type="date"],form input[type="email"],form input[type="password"],form input[type="password2"],select,textarea{width:300px;}
+.well {
+	background-color: #333;
+	color: #fff;
+}
 
-.sidebar-nav input[type='text'],.sidebar-nav input[type='password']{width:210px;}
+.span9 {
+	background-color: #d1d1d1;
+	padding: 25px;
+	border-radius: 15px;
+}
+
+form input[type="text"],form input[type="date"],form input[type="email"],form input[type="password"],form input[type="password2"],select,textarea{width:300px; padding: 15px;}
+
+.sidebar-nav input[type='text'],.sidebar-nav input[type='password']{width:210px; padding: 15px;}
+
+footer {
+	margin: 0;
+	width: 100%;
+	height: 50px;
+	padding: 0;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+}
+
+footer p {
+	margin-top: 50px;
+	padding-top: 15px;
+}

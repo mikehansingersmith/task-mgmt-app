@@ -56,5 +56,5 @@ $rows = $database->resultset();
 	<textarea rows="5" cols="50" name="task_body"></textarea><br />
 	<label>Due Date</label>
 	<input type='date' name='due_date' /><br />
-	<input type="submit" value="Create" name="task_submit" />
+	<input class="btn btn-primary" type="submit" value="Create" name="task_submit" />
 </form>

@@ -28,5 +28,5 @@
 	<input type="text" name="list_name" /><br />
 	<label>List Body</label>
 	<textarea rows="5" cols="50" name="list_body"></textarea><br />
-	<input type="submit" value="Create" name="submit" />
+	<input class="btn btn-primary" type="submit" value="Create" name="submit" />
 </form>

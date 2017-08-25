@@ -35,7 +35,6 @@ date_default_timezone_set('America/New_York');
     }
   }
 
-
   //LOG OUT
   if($_POST['logout_submit']){
     if(isset($_SESSION['username']))
@@ -59,38 +58,37 @@ date_default_timezone_set('America/New_York');
 <body>
 <script src="js/site.js"></script>
 
- <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="#">myTasks</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              <?php if($_SESSION['logged_in']) : ?>
-                Hello, <?php echo $_SESSION['username']; ?>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#">myTasks</a>
+        <div class="nav-collapse collapse">
+          <p class="navbar-text pull-right">
+            <?php if($_SESSION['logged_in']) : ?>
+              Hello, <?php echo $_SESSION['username']; ?>
             <?php endif; ?>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="index.php?page=welcome">Home</a></li>
-              <?php if(!$_SESSION['logged_in']) : ?>
-                  <li><a href="index.php?page=register">Register</a></li>
-              <?php else : ?>
-
-                  <li><a href="index.php?page=new_list">Add List</a></li>
-                  <li><a href="index.php?page=new_task">Add Task</a></li>
-              <?php endif; ?>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+          </p>
+          <ul class="nav">
+            <li class="active"><a href="index.php?page=welcome">Home</a></li>
+            <?php if(!$_SESSION['logged_in']) : ?>
+              <li><a href="index.php?page=register">Register</a></li>
+            <?php else : ?>
+              <li><a href="index.php?page=new_list">Add List</a></li>
+              <li><a href="index.php?page=new_task">Add Task</a></li>
+            <?php endif; ?>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
+  </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
           <div style="margin:0 0 10px 10px;">
 
-          <h3>Login Form</h3>
+            <h3>Login Form</h3>
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
               <?php if(!$_SESSION['logged_in']) : ?>
                 <?php foreach($login_msg as $msg) : ?>
@@ -101,48 +99,47 @@ date_default_timezone_set('America/New_York');
                 <label>Password: </label><br />
                 <input type="password" name="password" /><br />
                 <br />
-                <input type="submit" value="Login" name="login_submit" />
-              <?php else : ?>
-                <input type="submit" value="Logout" name="logout_submit" />
+                <input class="btn btn-primary" type="submit" value="Login" name="login_submit" />
+                <?php else : ?>
+                  <input class="btn btn-primary" type="submit" value="Logout" name="logout_submit" />
               <?php endif; ?>
-          </form>
+            </form>
           </div>
-          </div><!--/.well -->
-        </div><!--/span-->
+        </div><!--/.well -->
+      </div><!--/span-->
 
-        <div class="span9">
-    <?php
-    if($_GET['msg'] == 'listdeleted'){
-      echo '<p class="msg">Your list has been deleted</p>';
-    }
-    if($_GET['page'] == 'welcome' || $_GET['page'] == ""){
-      include 'pages/welcome.php';
-    } elseif($_GET['page'] == 'list'){
-      include 'pages/list.php';
-    } elseif($_GET['page'] == 'task'){
-      include 'pages/task.php';
-    } elseif($_GET['page'] == 'new_task'){
-      include 'pages/new_task.php';
-    } elseif($_GET['page'] == 'new_list'){
-      include 'pages/new_list.php';
-    } elseif($_GET['page'] == 'edit_task'){
-      include 'pages/edit_task.php';
-    } elseif($_GET['page'] == 'edit_list'){
-      include 'pages/edit_list.php';
-    } elseif($_GET['page'] == 'register'){
-      include 'pages/register.php';
-    } elseif($_GET['page'] == 'delete_list'){
-      include 'pages/delete_list.php';
-    }
-    ?>
-
-        </div><!--/span-->
+      <div class="span9">
+        <?php
+          if($_GET['msg'] == 'listdeleted'){
+            echo '<p class="msg">Your list has been deleted</p>';
+          }
+          if($_GET['page'] == 'welcome' || $_GET['page'] == ""){
+            include 'pages/welcome.php';
+          } elseif($_GET['page'] == 'list'){
+            include 'pages/list.php';
+          } elseif($_GET['page'] == 'task'){
+            include 'pages/task.php';
+          } elseif($_GET['page'] == 'new_task'){
+            include 'pages/new_task.php';
+          } elseif($_GET['page'] == 'new_list'){
+            include 'pages/new_list.php';
+          } elseif($_GET['page'] == 'edit_task'){
+            include 'pages/edit_task.php';
+          } elseif($_GET['page'] == 'edit_list'){
+            include 'pages/edit_list.php';
+          } elseif($_GET['page'] == 'register'){
+            include 'pages/register.php';
+          } elseif($_GET['page'] == 'delete_list'){
+            include 'pages/delete_list.php';
+          }
+        ?>
+      </div><!--/span-->
 		</div><!--/row-->
-      <hr>
+  </div><!--/.fluid-container-->
+  <hr>
 
-      <footer>
-        <p>&copy; Mike Hansinger Smith 2017</p>
-      </footer>
-    </div><!--/.fluid-container-->
+  <footer>
+    <p>&copy; Mike Hansinger Smith 2017</p>
+  </footer>
 </body>
 </html>

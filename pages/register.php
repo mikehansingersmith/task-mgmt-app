@@ -10,23 +10,23 @@
 		//Check passwords match
 		if($password != $password2){
 			$errors[] = "Your passwords do not match";
-		} 
+		}
 		//Check first name
 		if(empty($first_name)){
 			$errors[] = "First Name is Required";
-		} 
+		}
 		//Check email
 		if(empty($email)){
 			$errors[] = "Email is Required";
-		} 
+		}
 		//Check username
 		if(empty($username)){
 			$errors[] = "Username is Required";
-		} 
+		}
 		//Match passwords
 		if(empty($password)){
 			$errors[] = "Password is Required";
-		} 
+		}
 
 
 		//Instantiate Database object
@@ -36,7 +36,7 @@
 
 		//Query
 		$database->query('SELECT username FROM users WHERE username = :username');
-		$database->bind(':username', $username);  
+		$database->bind(':username', $username);
 		//Execute
 		$database->execute();
 		if($database->rowCount() > 0){
@@ -47,7 +47,7 @@
 
 		//Query
 		$database->query('SELECT email FROM users WHERE email = :email');
-		$database->bind(':email', $email);  
+		$database->bind(':email', $email);
 		//Execute
 		$database->execute();
 		if($database->rowCount() > 0){
@@ -63,11 +63,11 @@
 			$database->query('INSERT INTO users (first_name,last_name,email,username,password)
 			              VALUES(:first_name,:last_name,:email,:username,:password)');
 			//Bind Values
-			$database->bind(':first_name', $first_name);  
-			$database->bind(':last_name', $last_name);   
-			$database->bind(':email', $email);  
-			$database->bind(':username', $username);  
-			$database->bind(':password', $enc_password);  
+			$database->bind(':first_name', $first_name);
+			$database->bind(':last_name', $last_name);
+			$database->bind(':email', $email);
+			$database->bind(':username', $username);
+			$database->bind(':password', $enc_password);
 
 			//Execute
 			$database->execute();
@@ -98,7 +98,7 @@ if(!empty($errors)){
                 <input type="text" name="first_name" value="<?php if($_POST['first_name'])echo $_POST['first_name'] ?>" /><br />
                 <label>Last Name: </label>
                 <input type="text" name="last_name" value="<?php if($_POST['first_name'])echo $_POST['last_name'] ?>" /><br />
- 
+
                 <label>Email: </label>
                 <input type="text" name="email" value="<?php if($_POST['email'])echo $_POST['email'] ?>" /><br />
                 <label>Username: </label>
@@ -108,6 +108,6 @@ if(!empty($errors)){
                  <label>Confirm Password: </label>
                 <input type="password2" name="password2" value="<?php if($_POST['password2'])echo $_POST['password2'] ?>" /><br />
                 <br />
-                <input type="submit" value="Register" name="register_submit" />
-             
+                <input class="btn btn-primary" type="submit" value="Register" name="register_submit" />
+
           </form>
